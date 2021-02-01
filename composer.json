@@ -1,0 +1,33 @@
+{
+  "name": "alexpts/http-message-parser",
+  "description": "Parser http message and convert to PSR7 and back",
+  "keywords": [
+    "psr-7",
+    "parser",
+    "http"
+  ],
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "alexpts",
+      "email": "alexpts@yandex.ru"
+    }
+  ],
+  "require": {
+    "php": "~8.0"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "PTS\\ParserPsr7\\": "src"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "phpbench/phpbench": "1.0.0-alpha4"
+  }
+}
