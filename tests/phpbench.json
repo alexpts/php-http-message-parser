@@ -1,0 +1,6 @@
+{
+  "bootstrap": "../vendor/autoload.php",
+  "path": "bench",
+  "time_unit": "milliseconds",
+  "progress": "blinken"
+}
