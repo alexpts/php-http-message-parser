@@ -16,7 +16,8 @@
   ],
   "require": {
     "php": "~8.0",
-    "psr/http-message": "^1.0"
+    "psr/http-message": "^1.0",
+    "alexpts/mutable-psr7": "^0.2.1"
   },
   "minimum-stability": "stable",
   "autoload": {

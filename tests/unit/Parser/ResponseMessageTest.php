@@ -1,4 +1,7 @@
 <?php
+declare(strict_types=1);
+
+namespace PTS\Test\ParserPsr7\unit\Parser;
 
 use PHPUnit\Framework\TestCase;
 use PTS\ParserPsr7\Message\ResponseMessage;
