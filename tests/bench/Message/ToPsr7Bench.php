@@ -83,7 +83,7 @@ class ToPsr7Bench
     {
         $response = new JsonResponse(['status' => 'ok'], 200, [
             'connection' => 'Keep-Alive',
-            'content-Length' => '10',
+            'content-length' => '10',
         ]);
 
         $this->factory->toMessageResponse($response);

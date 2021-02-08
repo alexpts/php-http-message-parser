@@ -24,7 +24,12 @@ class Psr7Factory implements Psr7FactoryInterface
 
     public function toMessageRequest(ServerRequestInterface $request): string
     {
-        $message = $this->getStartLineRequest($request) . "\r\n";
+        $message = sprintf(
+            "%s %s HTTP %s\r\n",
+            $request->getMethod(),
+            $request->getUri(),
+            $request->getProtocolVersion()
+        );
         $message .= $this->getHeaders($request) . "\r\n\r\n";
         return $message . $request->getBody();
     }
@@ -32,23 +37,13 @@ class Psr7Factory implements Psr7FactoryInterface
     public function toMessageResponse(ResponseInterface $response): string
     {
         $message = sprintf(
-            'HTTP/%s %d %s',
+            "HTTP/%s %d %s\r\n",
             $response->getProtocolVersion(),
             $response->getStatusCode(),
             $response->getReasonPhrase()
         );
         $message .= $this->getHeaders($response) . "\r\n\r\n";
         return $message . $response->getBody();
-    }
-
-    protected function getStartLineRequest(RequestInterface $request): string
-    {
-        return sprintf(
-            '%s %s HTTP %s',
-            $request->getMethod(),
-            $request->getUri(),
-            $request->getProtocolVersion()
-        );
     }
 
     protected function getHeaders(MessageInterface $message): string
