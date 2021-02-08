@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/alexpts/php-http-message-parser.svg?branch=master)](https://travis-ci.org/alexpts/php-http-message-parser)
-[![Code Coverage](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/?branch=master)
+[![Build Status](https://travis-ci.com/alexpts/php-http-message-parser.svg?branch=main)](https://travis-ci.com/alexpts/php-http-message-parser.svg?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/?branch=main)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/?branch=main)
 
 
 # php-http-message-parser
