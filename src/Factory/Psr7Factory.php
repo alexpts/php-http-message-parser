@@ -6,6 +6,7 @@ use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use PTS\ParserPsr7\Message\HeadersValidator;
 use PTS\ParserPsr7\Message\RequestMessage;
 use PTS\ParserPsr7\Message\ResponseMessage;
 use PTS\Psr7\Response;
@@ -14,6 +15,12 @@ use PTS\Psr7\Uri;
 
 class Psr7Factory implements Psr7FactoryInterface
 {
+    protected ?HeadersValidator $headerValidator = null;
+
+    public function __construct()
+    {
+        $this->headerValidator = new HeadersValidator;
+    }
 
     public function toMessageRequest(ServerRequestInterface $request): string
     {
@@ -24,19 +31,14 @@ class Psr7Factory implements Psr7FactoryInterface
 
     public function toMessageResponse(ResponseInterface $response): string
     {
-        $message = $this->getStartLineResponse($response) . "\r\n";
-        $message .= $this->getHeaders($response) . "\r\n\r\n";
-        return $message . $response->getBody();
-    }
-
-    protected function getStartLineResponse(ResponseInterface $response): string
-    {
-        return sprintf(
+        $message = sprintf(
             'HTTP/%s %d %s',
             $response->getProtocolVersion(),
             $response->getStatusCode(),
             $response->getReasonPhrase()
         );
+        $message .= $this->getHeaders($response) . "\r\n\r\n";
+        return $message . $response->getBody();
     }
 
     protected function getStartLineRequest(RequestInterface $request): string
@@ -65,29 +67,31 @@ class Psr7Factory implements Psr7FactoryInterface
     public function toPsr7Request(string $httpMessage): ServerRequestInterface
     {
         $message = new RequestMessage($httpMessage);
+        $headers = $message->getHeaders();
+
+        if ($this->headerValidator) {
+            $this->headerValidator->validate($headers);
+        }
 
         // @todo lazy headers
-        $request = new ServerRequest(
+        return new ServerRequest(
             $message->getMethod(),
             new Uri($message->getUri()),
-            $message->getHeaders(false),
+            $headers,
             $message->getBody(),
             $message->getProtocolVersion()
         );
-
-
-        return $request;
     }
 
     public function toPsr7Response(string $httpMessage): ResponseInterface
     {
-        $request = new ResponseMessage($httpMessage);
+        $response = new ResponseMessage($httpMessage);
 
         return new Response(
-            $request->getStatusCode(),
-            $request->getHeaders(),
-            $request->getBody(),
-            $request->getProtocolVersion(),
+            $response->getStatusCode(),
+            $response->getHeaders(),
+            $response->getBody(),
+            $response->getProtocolVersion(),
         );
     }
 }
