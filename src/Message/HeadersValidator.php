@@ -13,15 +13,18 @@ class HeadersValidator
      */
     public function validate(array $headers): void
     {
-        if (count($headers) === 0) {
-            return;
-        }
+        if (count($headers)) {
+            $names = implode('', array_keys($headers));
+            if (preg_match("/^[~0-9A-Za-z-+_.]+$/", $names) !== 1) {
+                throw new InvalidArgumentException("Header names is incorrect: $names");
+            }
 
-        $names = implode('', array_keys($headers));
-        if (preg_match("/^[~0-9A-Za-z-+_.]+$/", $names) !== 1) {
-            throw new InvalidArgumentException("Header names is incorrect: $names");
+            $this->validateValues($headers);
         }
+    }
 
+    protected function validateValues(array $headers): void
+    {
         $allValues = '';
         foreach ($headers as $values) {
             foreach ($values as $value) {

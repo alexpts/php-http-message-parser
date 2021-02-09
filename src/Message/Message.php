@@ -11,8 +11,8 @@ abstract class Message
 {
     protected static array $cache = [];
 
-    public const BODY_DELIMITER = "\r\n\r\n";
-    public const HEADER_DELIMITER = "\r\n";
+    protected const BODY_DELIMITER = "\r\n\r\n";
+    protected const HEADER_DELIMITER = "\r\n";
 
     protected string $startLine = '';
     protected string $rawHeaders = '';
