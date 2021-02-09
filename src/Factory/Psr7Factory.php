@@ -3,7 +3,6 @@
 namespace PTS\ParserPsr7\Factory;
 
 use Psr\Http\Message\MessageInterface;
-use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use PTS\ParserPsr7\Message\HeadersValidator;
