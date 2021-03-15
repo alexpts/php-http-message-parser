@@ -25,7 +25,7 @@ class RequestMessageBench
      * @OutputTimeUnit("microseconds", precision=3)
      * @Warmup(1)
      *
-     * @Assert("variant.mode < 1 microseconds")
+     * @Assert("mode(variant.time.avg) < 1 microseconds")
      *
      * @param array $params
      */
@@ -43,7 +43,7 @@ class RequestMessageBench
      * @ OutputMode("throughput") - выводить число операций в единицу времени, а не среднее время
      * @Warmup(1)
      *
-     * @Assert("variant.mode < 4.0 microseconds")
+     * @Assert("mode(variant.time.avg) < 4 microseconds")
      */
     public function benchRequestMessageParseHeaders(array $params): void
     {

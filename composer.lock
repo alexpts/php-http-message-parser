@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e6daf6fd7aa57d1a0f7d3f8fc543eed",
+    "content-hash": "a7bae06f09f505219b14ddc993615a43",
     "packages": [
         {
             "name": "alexpts/mutable-psr7",
@@ -904,16 +904,16 @@
         },
         {
             "name": "phpbench/phpbench",
-            "version": "1.0.0-alpha4",
+            "version": "1.0.0-alpha6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpbench/phpbench.git",
-                "reference": "a0e8edfc1a308d79b4950648ece538cef7a6446e"
+                "reference": "7c22ace875249a3d79a3de2a04dbd9d3171420e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpbench/phpbench/zipball/a0e8edfc1a308d79b4950648ece538cef7a6446e",
-                "reference": "a0e8edfc1a308d79b4950648ece538cef7a6446e",
+                "url": "https://api.github.com/repos/phpbench/phpbench/zipball/7c22ace875249a3d79a3de2a04dbd9d3171420e8",
+                "reference": "7c22ace875249a3d79a3de2a04dbd9d3171420e8",
                 "shasum": ""
             },
             "require": {
@@ -942,9 +942,10 @@
                 "friendsofphp/php-cs-fixer": "^2.13.1",
                 "jangregor/phpstan-prophecy": "^0.8.1",
                 "padraic/phar-updater": "^1.0",
-                "phpspec/prophecy": "^1.11",
+                "phpspec/prophecy": "^1.12",
                 "phpstan/phpstan": "^0.12.7",
                 "phpunit/phpunit": "^8.5.8 || ^9.0",
+                "symfony/error-handler": "^5.2",
                 "symfony/var-dumper": "^4.0 || ^5.0"
             },
             "suggest": {
@@ -979,9 +980,9 @@
             "description": "PHP Benchmarking Framework",
             "support": {
                 "issues": "https://github.com/phpbench/phpbench/issues",
-                "source": "https://github.com/phpbench/phpbench/tree/1.0.0-alpha4"
+                "source": "https://github.com/phpbench/phpbench/tree/1.0.0-alpha6"
             },
-            "time": "2020-12-29T09:42:38+00:00"
+            "time": "2021-02-28T21:22:16+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2703,62 +2704,6 @@
                 }
             ],
             "time": "2020-11-11T09:19:24+00:00"
-        },
-        {
-            "name": "squizlabs/php_codesniffer",
-            "version": "3.5.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "9d583721a7157ee997f235f327de038e7ea6dac4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9d583721a7157ee997f235f327de038e7ea6dac4",
-                "reference": "9d583721a7157ee997f235f327de038e7ea6dac4",
-                "shasum": ""
-            },
-            "require": {
-                "ext-simplexml": "*",
-                "ext-tokenizer": "*",
-                "ext-xmlwriter": "*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
-            },
-            "bin": [
-                "bin/phpcs",
-                "bin/phpcbf"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Greg Sherwood",
-                    "role": "lead"
-                }
-            ],
-            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-            "homepage": "https://github.com/squizlabs/PHP_CodeSniffer",
-            "keywords": [
-                "phpcs",
-                "standards"
-            ],
-            "support": {
-                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
-                "source": "https://github.com/squizlabs/PHP_CodeSniffer",
-                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
-            },
-            "time": "2020-10-23T02:01:07+00:00"
         },
         {
             "name": "symfony/console",

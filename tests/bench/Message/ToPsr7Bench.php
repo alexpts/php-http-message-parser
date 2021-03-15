@@ -29,7 +29,9 @@ class ToPsr7Bench
      * @ParamProviders({"requestProvider"})
      * @OutputTimeUnit("microseconds", precision=3)
      * @Warmup(1)
-     * @Assert("variant.mode < 20 microseconds")
+     *
+     * @Assert("mode(variant.time.avg) < 20 microseconds")
+     *
      * @param array $params
      */
     public function benchCreatePsr7Request(array $params): void
@@ -54,7 +56,9 @@ class ToPsr7Bench
      * @ParamProviders({"responseProvider"})
      * @OutputTimeUnit("microseconds", precision=3)
      * @Warmup(1)
-     * @Assert("variant.mode < 20 microseconds")
+     *
+     * @Assert("mode(variant.time.avg) < 20 microseconds")
+     *
      * @param array $params
      */
     public function benchCreatePsr7Response(array $params): void
@@ -77,7 +81,7 @@ class ToPsr7Bench
      * @Iterations(4)
      * @OutputTimeUnit("microseconds", precision=3)
      * @Warmup(1)
-     * @Assert("variant.mode < 8 microseconds")
+     * @Assert("mode(variant.time.avg) < 200 microseconds")
      */
     public function benchEmitterPsr7Response(): void
     {
