@@ -13,7 +13,7 @@ class HeaderValidatorTest extends TestCase
 
     public function testBadHeaderName(): void
     {
-        $message = "GET / HTTP 1.1\r\nHeader#$: value\r\n\r\n";
+        $message = "GET / HTTP/1.1\r\nHeader#$: value\r\n\r\n";
         $message = new RequestMessage($message);
 
         $this->expectException(InvalidArgumentException::class);
@@ -25,7 +25,7 @@ class HeaderValidatorTest extends TestCase
 
     public function testBadHeaderValue(): void
     {
-        $message = "GET / HTTP 1.1\r\nHeader: value\x19\r\n\r\n";
+        $message = "GET / HTTP/1.1\r\nHeader: value\x19\r\n\r\n";
         $message = new RequestMessage($message);
 
         $this->expectException(InvalidArgumentException::class);
@@ -37,7 +37,7 @@ class HeaderValidatorTest extends TestCase
 
     public function testEmptyHeaders(): void
     {
-        $message = "GET / HTTP 1.1\r\n\r\n";
+        $message = "GET / HTTP/1.1\r\n\r\n";
         $message = new RequestMessage($message);
 
         $validator = new HeadersValidator;

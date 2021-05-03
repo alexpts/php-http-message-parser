@@ -11,7 +11,8 @@ class RequestMessage extends Message
 
     protected function parseStartLine(string $startLine): void
     {
-        [$this->method, $uri, $_, $this->protocolVersion] = explode(' ', $startLine);
+        [$this->method, $uri, $protocolVersion] = explode(' ', $startLine);
+        $this->protocolVersion = substr($protocolVersion, 5);
         $this->uri = $uri ?? '';
     }
 

@@ -24,7 +24,7 @@ class Psr7Factory implements Psr7FactoryInterface
     public function toMessageRequest(ServerRequestInterface $request): string
     {
         $message = sprintf(
-            "%s %s HTTP %s\r\n",
+            "%s %s HTTP/%s\r\n",
             $request->getMethod(),
             $request->getUri(),
             $request->getProtocolVersion()

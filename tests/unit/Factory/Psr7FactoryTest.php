@@ -38,6 +38,7 @@ class Psr7FactoryTest extends TestCase
 
     /**
      * @param string $message
+     * @param string $expected
      *
      * @dataProvider requestDataProvider2
      */
@@ -54,12 +55,12 @@ class Psr7FactoryTest extends TestCase
     {
         return [
             [
-                'message' => "GET / HTTP 1.0\r\nconnection:keep-alive\r\nh1: v1 \r\nuser: 1\r\n\r\n",
-                'expected' => "GET / HTTP 1.0\r\nconnection:keep-alive\r\nh1:v1\r\nuser:1\r\n\r\n",
+                'message' => "GET / HTTP/1.0\r\nconnection:keep-alive\r\nh1: v1 \r\nuser: 1\r\n\r\n",
+                'expected' => "GET / HTTP/1.0\r\nconnection:keep-alive\r\nh1:v1\r\nuser:1\r\n\r\n",
             ],
             [
-                'message' => "POST /create?new=1 HTTP 1.1\r\ncontent-type: application/json\r\n\r\n{\"name\":\"alex\"}",
-                'expected' => "POST /create?new=1 HTTP 1.1\r\ncontent-type:application/json\r\n\r\n{\"name\":\"alex\"}",
+                'message' => "POST /create?new=1 HTTP/1.1\r\ncontent-type: application/json\r\n\r\n{\"name\":\"alex\"}",
+                'expected' => "POST /create?new=1 HTTP/1.1\r\ncontent-type:application/json\r\n\r\n{\"name\":\"alex\"}",
             ]
         ];
     }
@@ -68,7 +69,7 @@ class Psr7FactoryTest extends TestCase
     {
         return [
             [
-                'message' => "GET / HTTP 1.0\r\nconnection:keep-alive\r\nh1: v1 \r\nuser: 1\r\n\r\n",
+                'message' => "GET / HTTP/1.0\r\nconnection:keep-alive\r\nh1: v1 \r\nuser: 1\r\n\r\n",
                 [
                     'method' => 'GET',
                     'uri' => '/',
@@ -82,7 +83,7 @@ class Psr7FactoryTest extends TestCase
                 ]
             ],
             [
-                'message' => "POST /create?new=1 HTTP 1.1\r\ncontent-type: application/json\r\n\r\n{\"name\":\"alex\"}",
+                'message' => "POST /create?new=1 HTTP/1.1\r\ncontent-type: application/json\r\n\r\n{\"name\":\"alex\"}",
                 [
                     'method' => 'POST',
                     'uri' => '/create?new=1',

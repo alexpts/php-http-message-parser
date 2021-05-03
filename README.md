@@ -34,5 +34,6 @@ $httpMessage2 = $factory->toMessageRequest($psr7Response); // "HTTP/1.1 404 Not 
 ### Benchmark Tests
 
 `cd tests && php ../vendor/bin/phpbench run --report=aggregate`
+`cd tests && php ../vendor/bin/phpbench run --report=aggregate --filter=benchCreatePsr7Response`
 or
 `composer bench`

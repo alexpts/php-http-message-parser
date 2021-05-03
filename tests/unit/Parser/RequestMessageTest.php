@@ -30,7 +30,7 @@ class RequestMessageTest extends TestCase
     {
         return [
             [
-                'message' => "GET / HTTP 1.0\r\nconnection:keep-alive\r\nh1: v1 \r\nuser: 1\r\n\r\n",
+                'message' => "GET / HTTP/1.0\r\nconnection:keep-alive\r\nh1: v1 \r\nuser: 1\r\n\r\n",
                 [
                     'method' => 'GET',
                     'uri' => '/',
@@ -44,7 +44,7 @@ class RequestMessageTest extends TestCase
                 ]
             ],
             [
-                'message' => "POST /create?new=1 HTTP 1.1\r\ncontent-type: application/json\r\n\r\n{\"name\":\"alex\"}",
+                'message' => "POST /create?new=1 HTTP/1.1\r\ncontent-type: application/json\r\n\r\n{\"name\":\"alex\"}",
                 [
                     'method' => 'POST',
                     'uri' => '/create?new=1',
@@ -61,7 +61,7 @@ class RequestMessageTest extends TestCase
 
     public function testGetProtocolVersion(): void
     {
-        $message = "GET / HTTP 1.1\r\n\r\n";
+        $message = "GET / HTTP/1.1\r\n\r\n";
         $message = new RequestMessage($message);
 
         self::assertSame('1.1', $message->getProtocolVersion());
@@ -71,7 +71,7 @@ class RequestMessageTest extends TestCase
 
     public function testGetUri(): void
     {
-        $message = "GET /send HTTP 1.1\r\n\r\n";
+        $message = "GET /send HTTP/1.1\r\n\r\n";
         $message = new RequestMessage($message);
 
         self::assertSame('/send', $message->getUri());
@@ -81,7 +81,7 @@ class RequestMessageTest extends TestCase
 
     public function testSetHeaders(): void
     {
-        $message = "GET /send HTTP 1.1\r\n\r\n";
+        $message = "GET /send HTTP/1.1\r\n\r\n";
         $message = new RequestMessage($message);
         $message->setHeaders([
             'connection' => ['keep-alive']

@@ -55,9 +55,9 @@ class RequestMessageBench
     public function requestProvider(): array
     {
         return [
-            'GET' => ["GET / HTTP 1.1\r\nConnection: Keep-Alive\r\nh1: v1 \r\nuser: 1\r\n\r\n"],
-            'POST' => ["POST /my/account HTTP 1.1\r\nConnection: Keep-Alive\r\nToken: ds1223k#fk5423lSDL\r\n\r\n"],
-            'Many Headers' => ["GET /my/account HTTP 1.1\r\nConnection: Keep-Alive\r\nDate: Sun, 18 Oct 2012 10:36:20 GMT\r\nServer: Apache/2.2.14 (Win32)\r\nContent-Length: 0\r\nContent-Type: text/html; charset=iso-8859-1\r\nDNT:1\r\nX-Web: some1\r\nToken: ds1223k#fk5423lSDL\r\n\r\n"],
+            'GET' => ["GET / HTTP/1.1\r\nConnection: Keep-Alive\r\nh1: v1 \r\nuser: 1\r\n\r\n"],
+            'POST' => ["POST /my/account HTTP/1.1\r\nConnection: Keep-Alive\r\nToken: ds1223k#fk5423lSDL\r\n\r\n"],
+            'Many Headers' => ["GET /my/account HTTP/1.1\r\nConnection: Keep-Alive\r\nDate: Sun, 18 Oct 2012 10:36:20 GMT\r\nServer: Apache/2.2.14 (Win32)\r\nContent-Length: 0\r\nContent-Type: text/html; charset=iso-8859-1\r\nDNT:1\r\nX-Web: some1\r\nToken: ds1223k#fk5423lSDL\r\n\r\n"],
         ];
     }
 }

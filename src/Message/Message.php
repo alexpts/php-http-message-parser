@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace PTS\ParserPsr7\Message;
 
-
 use function explode;
 use function trim;
 
