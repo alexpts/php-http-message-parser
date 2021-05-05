@@ -4,7 +4,7 @@ namespace PTS\ParserPsr7\Message;
 
 use InvalidArgumentException;
 
-class HeadersValidator
+class HeadersValidator implements HeadersValidatorInterface
 {
     /**
      * @param array $headers

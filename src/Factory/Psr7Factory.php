@@ -6,6 +6,7 @@ use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use PTS\ParserPsr7\Message\HeadersValidator;
+use PTS\ParserPsr7\Message\HeadersValidatorInterface;
 use PTS\ParserPsr7\Message\RequestMessage;
 use PTS\ParserPsr7\Message\ResponseMessage;
 use PTS\Psr7\Response;
@@ -14,11 +15,11 @@ use PTS\Psr7\Uri;
 
 class Psr7Factory implements Psr7FactoryInterface
 {
-    protected ?HeadersValidator $headerValidator = null;
+    protected ?HeadersValidatorInterface $headerValidator = null;
 
-    public function __construct()
+    public function __construct(HeadersValidatorInterface $headerValidator = null)
     {
-        $this->headerValidator = new HeadersValidator;
+        $this->headerValidator = $headerValidator ?? new HeadersValidator;
     }
 
     public function toMessageRequest(ServerRequestInterface $request): string
