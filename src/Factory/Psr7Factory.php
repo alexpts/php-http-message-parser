@@ -34,7 +34,7 @@ class Psr7Factory implements Psr7FactoryInterface
         return $message . $request->getBody();
     }
 
-    public function toMessageResponse(ResponseInterface $response): string
+    public function toMessageResponse(ResponseInterface $response, string $customBody = null): string
     {
         $message = sprintf(
             "HTTP/%s %d %s\r\n",
@@ -43,7 +43,9 @@ class Psr7Factory implements Psr7FactoryInterface
             $response->getReasonPhrase()
         );
         $message .= $this->getHeaders($response) . "\r\n\r\n";
-        return $message . $response->getBody();
+        $message .= $customBody ?: $response->getBody();
+
+        return $message;
     }
 
     protected function getHeaders(MessageInterface $message): string

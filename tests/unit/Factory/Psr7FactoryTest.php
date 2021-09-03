@@ -153,15 +153,16 @@ class Psr7FactoryTest extends TestCase
     /**
      * @param string $message
      * @param string $expected
+     * @param null $customBody
      *
      * @dataProvider responseDataProvider2
      */
-    public function testToMessagePsr7Response(string $message, string $expected): void
+    public function testToMessagePsr7Response(string $message, string $expected, $customBody = null): void
     {
         $factory = new Psr7Factory;
         $response = $factory->toPsr7Response($message);
 
-        $result = $factory->toMessageResponse($response);
+        $result = $factory->toMessageResponse($response, $customBody);
         self::assertSame($expected, $result);
     }
 
@@ -175,6 +176,11 @@ class Psr7FactoryTest extends TestCase
             [
                 'message' => "HTTP/1.1 200 OK\r\ncontent-type: application/json\r\n\r\n{\"name\":\"alex\"}",
                 'expected' => "HTTP/1.1 200 OK\r\ncontent-type:application/json\r\n\r\n{\"name\":\"alex\"}",
+            ],
+            [
+                'message' => "HTTP/1.1 200 OK\r\ncontent-type: application/json\r\n\r\n{\"name\":\"alex\"}",
+                'expected' => "HTTP/1.1 200 OK\r\ncontent-type:application/json\r\n\r\ncustom body",
+                'customBody' => 'custom body',
             ]
         ];
     }
