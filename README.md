@@ -1,7 +1,4 @@
-[![Build Status](https://travis-ci.com/alexpts/php-http-message-parser.svg?branch=main)](https://travis-ci.com/alexpts/php-http-message-parser.svg?branch=main)
-[![Code Coverage](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/?branch=main)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/alexpts/php-http-message-parser/?branch=main)
-
+[![Build Status](https://app.travis-ci.com/alexpts/php-http-message-parser.svg?branch=main)](https://app.travis-ci.com/alexpts/php-http-message-parser)
 
 # php-http-message-parser
 
@@ -33,7 +30,4 @@ $httpMessage2 = $factory->toMessageRequest($psr7Response); // "HTTP/1.1 404 Not 
 
 ### Benchmark Tests
 
-`cd tests && php ../vendor/bin/phpbench run --report=aggregate`
-`cd tests && php ../vendor/bin/phpbench run --report=aggregate --filter=benchCreatePsr7Response`
-or
 `composer bench`

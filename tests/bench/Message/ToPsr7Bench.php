@@ -4,11 +4,10 @@ namespace PTS\Test\ParserPsr7\bench\Message;
 
 use PhpBench\Benchmark\Metadata\Annotations\Assert;
 use PhpBench\Benchmark\Metadata\Annotations\Iterations;
-use PhpBench\Benchmark\Metadata\Annotations\OutputMode;
 use PhpBench\Benchmark\Metadata\Annotations\OutputTimeUnit;
 use PhpBench\Benchmark\Metadata\Annotations\ParamProviders;
 use PhpBench\Benchmark\Metadata\Annotations\Revs;
-use PhpBench\Benchmark\Metadata\Annotations\Skip;
+use PhpBench\Benchmark\Metadata\Annotations\Subject;
 use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use PTS\ParserPsr7\Factory\Psr7Factory;
 use PTS\Psr7\Response\JsonResponse;
@@ -24,6 +23,7 @@ class ToPsr7Bench
     }
 
     /**
+     * @Subject
      * @Revs(10)
      * @Iterations(4)
      * @ParamProviders({"requestProvider"})
@@ -34,7 +34,7 @@ class ToPsr7Bench
      *
      * @param array $params
      */
-    public function benchCreatePsr7Request(array $params): void
+    public function createPsr7Request(array $params): void
     {
         [$httpMessage] = $params;
         $this->factory->toPsr7Request($httpMessage);
@@ -51,6 +51,7 @@ class ToPsr7Bench
     }
 
     /**
+     * @Subject
      * @Revs(10)
      * @Iterations(4)
      * @ParamProviders({"responseProvider"})
@@ -61,7 +62,7 @@ class ToPsr7Bench
      *
      * @param array $params
      */
-    public function benchCreatePsr7Response(array $params): void
+    public function createPsr7Response(array $params): void
     {
         [$httpMessage] = $params;
         $this->factory->toPsr7Response($httpMessage);

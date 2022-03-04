@@ -2,6 +2,7 @@
 
 namespace PTS\ParserPsr7\Factory;
 
+use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -17,6 +18,7 @@ class Psr7Factory implements Psr7FactoryInterface
 {
     protected ?HeadersValidatorInterface $headerValidator = null;
 
+    #[Pure]
     public function __construct(HeadersValidatorInterface $headerValidator = null)
     {
         $this->headerValidator = $headerValidator ?? new HeadersValidator;
