@@ -1,12 +1,17 @@
-[![Build Status](https://app.travis-ci.com/alexpts/php-http-message-parser.svg?branch=main)](https://app.travis-ci.com/alexpts/php-http-message-parser)
-
 # php-http-message-parser
 
+[![phpunit](https://github.com/alexpts/php-http-message-parser/actions/workflows/phpunit.yml/badge.svg?branch=main)](https://github.com/alexpts/php-http-message-parser/actions/workflows/phpunit.yml)
+[![codecov](https://codecov.io/gh/alexpts/php-http-message-parser/branch/main/graph/badge.svg?token=14L6IJA5UE)](https://codecov.io/gh/alexpts/php-http-message-parser)
+
+```bash
+composer require alexpts/http-message-parser
+```
 
 Very fast parser for http message.
 
 - Create PSR-7 request/response from http message
 - Create http message from PSR-7 request/response
+- SapiEmitter
 
 ```php
 <?php
