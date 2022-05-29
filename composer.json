@@ -14,6 +14,9 @@
       "email": "alexpts@yandex.ru"
     }
   ],
+  "config": {
+    "optimize-autoloader": true
+  },
   "require": {
     "php": "~8.1",
     "psr/http-message": "^1.0",
@@ -25,20 +28,17 @@
       "PTS\\ParserPsr7\\": "src"
     }
   },
-  "autoload-dev": {
-    "psr-4": {
-      "PTS\\Test\\ParserPsr7\\": "tests"
-    }
-  },
-  "config": {
-    "optimize-autoloader": true
-  },
   "require-dev": {
     "phpunit/phpunit": "^9.5",
     "phpbench/phpbench": "^1.2"
   },
+  "autoload-dev": {
+    "psr-4": {
+      "PTS\\Test\\ParserPsr7\\": "test"
+    }
+  },
   "scripts": {
-    "bench": "vendor/bin/phpbench run --config=tests/phpbench.json --report=aggregate",
-    "test": "vendor/bin/phpunit --config=tests/phpunit.xml"
+    "bench": "vendor/bin/phpbench run --config=test/phpbench.json --report=aggregate",
+    "test": "vendor/bin/phpunit --config=test/phpunit.xml"
   }
 }
