@@ -68,9 +68,7 @@ class Psr7Factory implements Psr7FactoryInterface
         $message = new RequestMessage($httpMessage);
         $headers = $message->getHeaders();
 
-        if ($this->headerValidator) {
-            $this->headerValidator->validate($headers);
-        }
+        $this->headerValidator?->validate($headers);
 
         // @todo lazy headers
         return new ServerRequest(
