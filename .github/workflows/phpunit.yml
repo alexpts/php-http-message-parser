@@ -21,7 +21,7 @@ jobs:
         uses: php-actions/phpunit@v3
         with:
           configuration: ./test/phpunit.xml
-          php_extensions: pcov
+          php_extensions: pcov xdebug
 
       - name: coverage monitor
         uses: slavcodev/coverage-monitor-action@1.6.0

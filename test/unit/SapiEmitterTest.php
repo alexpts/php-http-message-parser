@@ -8,18 +8,32 @@ use PTS\ParserPsr7\SapiEmitter;
 
 class SapiEmitterTest extends TestCase
 {
-    public function testEmit() {
-        $emitter = new SapiEmitter;
+    /**
+     * @return void
+     * @runInSeparateProcess
+     */
+    public function testEmit(): void
+    {
+        if (!function_exists('xdebug_get_headers')) {
+            $this->markTestSkipped('test use xdebug extension');
+        }
 
+        $emitter = new SapiEmitter;
         $psr7Factory = new Psr7Factory;
 
-        $message = "HTTP/1.1 200 OK\r\ncontent-type:application/json\r\n\r\n{\"name\":\"alex\"}";
+        $message = "HTTP/1.1 202 OK\r\ncontent-type:application/json\r\n\r\n{\"name\":\"alex\"}";
         $psr7Response = $psr7Factory->toPsr7Response($message);
 
         ob_start();
         $emitter->emit($psr7Response);
+        $headers = xdebug_get_headers();
         $stdout = ob_get_clean();
+        $statusCode = http_response_code();
 
-        $this->assertSame($message, $stdout);
+        $this->assertSame($headers, [
+            'content-type: application/json'
+        ]);
+        $this->assertSame("{\"name\":\"alex\"}", $stdout);
+        $this->assertSame(202, $statusCode);
     }
 }
